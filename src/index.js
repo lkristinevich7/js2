@@ -27,13 +27,14 @@ var products = [
   }
 ]
 
-var offset = 1
-var limit = 2
-// var max = products.length
-var max = offset + limit
-var i = offset
+var i = 0
+var max = products.length
 
-while (i < max && max <= products.length) {
+while (true) {
+
+  if (i >= max) {
+    break
+  }
   var product = products[i]
   var datetxt = product.dataAdded.toLocaleDateString('pl')
   var grossPrice = (product.price * (1 + product.tax / 100)).toFixed(2)
