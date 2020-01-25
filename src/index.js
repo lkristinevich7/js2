@@ -27,19 +27,9 @@ var products = [
   }
 ]
 
-var i = 0
-var max = products.length
-
-while (true) {
-
-  if (i >= max) {
-    break
-  }
+for (var i = 0; i < products.length; i++) {
   var product = products[i]
-  i++
-  if (!product.promo) {
-    continue
-  }
+
   var datetxt = product.dataAdded.toLocaleDateString('pl')
   var grossPrice = (product.price * (1 + product.tax / 100)).toFixed(2)
 
@@ -47,6 +37,4 @@ while (true) {
   var wynik = product.name + ' - ' + (product.promo ? 'PROMOCJA - ' : '') + grossPrice + ' PLN ' + '(' + datetxt + ') '
 
   console.log(wynik)
-
- 
 }
