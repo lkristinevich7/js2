@@ -49,3 +49,5 @@ npm i  -g eslint
 eslint.cmd --init
 
 https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+
+<!-- npm i -D eslint-config-prettier eslint-plugin-prettier -->
