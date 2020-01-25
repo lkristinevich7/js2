@@ -31,3 +31,21 @@ npm install bootstrap --save
 npm run nazwa_skryptu
 npm run start
 npm start
+
+# Document Object Model
+```js
+window.document.body.children[0].style = "color:hotpink;"
+"color:hotpink;"
+
+window.document.body.children[0].children[0].children[0].children[0].innerText = "Lubie placki!"
+```
+
+# ESLint
+https://eslint.org/
+
+npm install eslint --save-dev
+
+npm i  -g eslint
+eslint.cmd --init
+
+https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
