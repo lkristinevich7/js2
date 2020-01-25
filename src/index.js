@@ -1,17 +1,40 @@
-var product = {
-  name: 'Książka JavaScript',
-  price: 97.99,
-  tax: 23,
-  promo: true,
-  'data-added': new Date(2020, 1, 20)
+
+var products = [
+  {
+    name: 'Książka JavaScript',
+    price: 97.99,
+    tax: 23,
+    promo: true,
+    dataAdded: new Date(2020, 1, 20)
+  },
+  {
+    name: 'Książka CSS',
+    price: 65.99,
+    tax: 23,
+    promo: false,
+    dataAdded: new Date(2020, 1, 15)
+  }
+]
+
+var max = 5
+var i = 0
+
+while (i < max) {
+  //     i = i + 1
+  //     i += 1
+  //     ++i
+  //     i++
+  console.log('Product numer X', ++i)
 }
+
+var product = products[1]
 
 // "Ksiazka JavaScript" - PROMOCJA - 97.99PLN (20.01.2020)
 
-var datetxt = product['data-added'].toLocaleDateString('pl')
+var datetxt = product.dataAdded.toLocaleDateString('pl')
 
 var grossPrice = (product.price * (1 + product.tax / 100)).toFixed(2)
 
-var wynik = name + ' - ' + (product.promo ? 'PROMOCJA - ' : '') + grossPrice + ' PLN ' + '(' + datetxt + ') '
+var wynik = product.name + ' - ' + (product.promo ? 'PROMOCJA - ' : '') + grossPrice + ' PLN ' + '(' + datetxt + ') '
 
 console.log(wynik)
