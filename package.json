@@ -4,11 +4,13 @@
   "description": "Szkolenie JavaScript",
   "main": "index.js",
   "scripts": {
+    "start": "http-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Mateusz Kulesza",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^4.4.1",
     "http-server": "^0.12.1"
   }
 }

@@ -18,3 +18,16 @@ git init
 git status
 .gitignore
 git add .
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+git commit -m "Pierwszy commit"
+git log 
+git status
+
+# Bootstrap CSS
+npm install bootstrap --save 
+
+# Npm Scripts
+npm run nazwa_skryptu
+npm run start
+npm start
