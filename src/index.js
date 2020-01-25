@@ -36,6 +36,10 @@ while (true) {
     break
   }
   var product = products[i]
+  i++
+  if (!product.promo) {
+    continue
+  }
   var datetxt = product.dataAdded.toLocaleDateString('pl')
   var grossPrice = (product.price * (1 + product.tax / 100)).toFixed(2)
 
@@ -44,5 +48,5 @@ while (true) {
 
   console.log(wynik)
 
-  i++
+ 
 }
