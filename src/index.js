@@ -56,14 +56,19 @@ for (var i in cartItems) {
 
   totalPrice += grossPrice * item.amount
 
-  console.log(
-    // Nazwa
-    '' + product.name + ' - ' +
-    // Cena x ilosc
-    grossPrice.toFixed(2) + ' x ' + item.amount + ' = ' +
-    // Cena
-    (grossPrice * item.amount).toFixed(2)
-  )
+  // <div class="list-group-item">
+  //   <strong class="product-name">Produkt 1</strong>
+  //   <div class="product-price">100 zł</div>
+  // </div>
+
+  // console.log(
+  //   // Nazwa
+  //   '' + product.name + ' - ' +
+  //   // Cena x ilosc
+  //   grossPrice.toFixed(2) + ' x ' + item.amount + ' = ' +
+  //   // Cena
+  //   (grossPrice * item.amount).toFixed(2)
+  // )
 }
 
 console.log('====================')
