@@ -1,6 +1,6 @@
 /* eslint-disable no-redeclare */
 
-var productsData = window.productsData
+var productsData = window.products
 
 var productsListDiv = document.getElementById('productsList')
 
@@ -38,38 +38,33 @@ var cartItems = window.cartItems
 // Cart Items List
 var cartItemsListDiv = document.getElementById('cartItemsList')
 
-console.log('====== SHOPPING CART ======')
-
-/*
-  Nazwa ProduktuA - 100.00 x 1 = 100.00
-  Nazwa ProduktuB - 100.00 x 2 = 200.00
-  ===
-  Suma produktów = 300.00
-*/
-
+cartItemsListDiv.innerHTML = ''
 var totalPrice = 0
 
 for (var i in cartItems) {
+
   var item = cartItems[i]
   var product = item.product
   var grossPrice = (product.price * (1 + product.tax / 100))
 
   totalPrice += grossPrice * item.amount
 
-  // <div class="list-group-item">
-  //   <strong class="product-name">Produkt 1</strong>
-  //   <div class="product-price">100 zł</div>
-  // </div>
+  var wrapperDiv = document.createElement('div')
 
-  // console.log(
-  //   // Nazwa
-  //   '' + product.name + ' - ' +
-  //   // Cena x ilosc
-  //   grossPrice.toFixed(2) + ' x ' + item.amount + ' = ' +
-  //   // Cena
-  //   (grossPrice * item.amount).toFixed(2)
-  // )
+  wrapperDiv.innerHTML = '<div class="list-group-item">' +
+    '<strong class="product-name"> </strong>' +
+    '<div class="product-price float-right"> </div>' +
+    '</div>'
+  var itemDiv = wrapperDiv.firstChild
+
+  itemDiv.querySelector('.product-name').innerText = product.name
+  itemDiv.querySelector('.product-price').innerText =
+    // Cena x ilosc
+    grossPrice.toFixed(2) + ' x ' + item.amount + ' = ' +
+    // Cena
+    (grossPrice * item.amount).toFixed(2) + ' zł'
+
+  cartItemsListDiv.append(itemDiv)
 }
 
-console.log('====================')
-console.log('Suma produktów = ', totalPrice)
+document.querySelector('.cart-total .cart-total-amount').innerText = totalPrice.toFixed(2)
