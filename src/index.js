@@ -1,27 +1,42 @@
 /* eslint-disable no-redeclare */
 
-var productsList = document.getElementById('productsList')
-var cartItemsList = document.getElementById('cartItemsList')
+var productsData = window.productsData
 
-// Products List
-console.log('====== Products List ======')
+var productsListDiv = document.getElementById('productsList')
 
-var products = window.products
+// Clear Products List
+productsListDiv.innerText = ''
 
-for (var i in products) {
-  var product = products[i]
+// Build Products List
+for (var i in productsData) {
+  var product = productsData[i]
 
   var datetxt = product.dataAdded.toLocaleDateString('pl')
   var grossPrice = (product.price * (1 + product.tax / 100)).toFixed(2)
 
   // "Ksiazka JavaScript" - PROMOCJA - 97.99PLN (20.01.2020)
-  var wynik = product.name + ' - ' + (product.promo ? 'PROMOCJA - ' : '') + grossPrice + ' PLN ' + '(' + datetxt + ') '
+  var text = product.name + ' - ' + (product.promo ? 'PROMOCJA - ' : '') + grossPrice + ' PLN ' + '(' + datetxt + ') '
 
-  console.log(wynik)
+  // Stwórz element div
+  var listItemDiv = document.createElement('div')
+
+  // Ustaw klase css 'list-group-item'
+  // listItemDiv.setAttribute('class', 'list-group-item')
+  listItemDiv.classList.add('list-group-item')
+
+  // Ustaw innerText = text
+  listItemDiv.innerText = text
+
+  // Dodaj element do listy
+  productsListDiv.appendChild(listItemDiv)
+
+  // console.log(wynik)
 }
 
-// Cart Items List
+// Cart Items Data
 var cartItems = window.cartItems
+// Cart Items List
+var cartItemsListDiv = document.getElementById('cartItemsList')
 
 console.log('====== SHOPPING CART ======')
 
