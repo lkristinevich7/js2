@@ -1,31 +1,43 @@
 /* eslint-disable no-redeclare */
 
 var productsData = window.products
+var cartItems = window.cartItems
 
 var productsListDiv = document.getElementById('productsList')
-
-// Clear Products List
-productsListDiv.innerText = ''
-
-// Build Products List
-for (var i in productsData) {
-  var currentProduct = productsData[i]
-
-  var listItemDiv = createProductDiv(currentProduct)
-
-  productsListDiv.appendChild(listItemDiv)
-}
-
-// Cart Items Data
-var cartItems = window.cartItems
-// Cart Items List
 var cartItemsListDiv = document.getElementById('cartItemsList')
 
-cartItemsListDiv.innerHTML = ''
-var totalPrice = 0
+// Clear Products List
+renderProductsList(productsData, productsListDiv)
+renderCart(cartItems, cartItemsListDiv)
 
-for (var i in cartItems) {
-  var item = cartItems[i]
+
+// ======== FUNCTIONS ============
+
+function renderCart (cartItems, cartItemsListDiv) {
+  cartItemsListDiv.innerHTML = ''
+  window.totalPrice = 0
+  for (var i in cartItems) {
+    var item = cartItems[i]
+    var itemDiv = createCartDiv(item)
+    cartItemsListDiv.append(itemDiv)
+  }
+  document.querySelector('.cart-total .cart-total-amount').innerText = totalPrice.toFixed(2)
+  return totalPrice
+}
+
+function renderProductsList (productsData, productsListDiv) {
+  productsListDiv.innerText = ''
+  // Build Products List
+  for (var i in productsData) {
+    var currentProduct = productsData[i]
+    var listItemDiv = createProductDiv(currentProduct)
+    productsListDiv.appendChild(listItemDiv)
+  }
+  return i
+}
+
+
+function createCartDiv(item) {
   var product = item.product
   var grossPrice = (product.price * (1 + product.tax / 100))
 
@@ -38,19 +50,16 @@ for (var i in cartItems) {
     '   <strong class="product-name"> </strong>' +
     '   <div class="product-price float-right"> </div>' +
     '</div>'
-  var itemDiv = wrapperDiv.firstChild
 
+  var itemDiv = wrapperDiv.firstChild
   itemDiv.querySelector('.product-name').innerText = product.name
   itemDiv.querySelector('.product-price').innerText =
     // Cena x ilosc
     grossPrice.toFixed(2) + ' x ' + item.amount + ' = ' +
     // Cena
     (grossPrice * item.amount).toFixed(2) + ' zł'
-
-  cartItemsListDiv.append(itemDiv)
+  return itemDiv
 }
-
-document.querySelector('.cart-total .cart-total-amount').innerText = totalPrice.toFixed(2)
 
 function createProductDiv(product) {
   var datetxt = product.dataAdded.toLocaleDateString('pl')
