@@ -30,9 +30,12 @@ console.log('====== SHOPPING CART ======')
 */
 
 for (var i in cartItems) {
+  var totalPrice = 0
   var item = cartItems[i]
   var product = item.product
   var grossPrice = (product.price * (1 + product.tax / 100))
+
+  totalPrice += grossPrice * item.amount
 
   console.log(
     // Nazwa
@@ -40,5 +43,9 @@ for (var i in cartItems) {
     // Cena x ilosc
     grossPrice.toFixed(2) + ' x ' + item.amount + ' = ' +
     // Cena
-    (grossPrice * item.amount).toFixed(2))
+    (grossPrice * item.amount).toFixed(2)
+  )
 }
+
+console.log('====================')
+console.log('Suma produktów = ', totalPrice)
