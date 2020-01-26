@@ -1,4 +1,14 @@
+# Slack
+https://programator-fullstack.slack.com/
+
+Zaposzenie:
+https://bit.ly/ 3a LF UTC 
+
+# Bitbucket / GIT:
+https://bitbucket.org/ev45ive/altkom-programator-fullstack/
+
 # Inicjalizacja nowego projektu
+git clone https://bitbucket.org/ev45ive/altkom-programator-fullstack.git 
 npm init 
 
 # Instalujemy server
@@ -23,6 +33,7 @@ git config --global user.name "Your Name"
 git commit -m "Pierwszy commit"
 git log 
 git status
+git checkout <COMMIT_ID>
 
 # Bootstrap CSS
 npm install bootstrap --save 

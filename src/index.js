@@ -1,33 +1,6 @@
+var products = window.products
 
-var products = [
-  {
-    name: 'Książka CSS',
-    price: 65.99,
-    tax: 23,
-    promo: false,
-    dataAdded: new Date(2020, 1, 15)
-  }, {
-    name: 'Książka JavaScript',
-    price: 97.99,
-    tax: 23,
-    promo: true,
-    dataAdded: new Date(2020, 1, 20)
-  }, {
-    name: 'Książka HTML',
-    price: 65.99,
-    tax: 23,
-    promo: false,
-    dataAdded: new Date(2020, 1, 15)
-  }, {
-    name: 'Książka React',
-    price: 97.99,
-    tax: 23,
-    promo: true,
-    dataAdded: new Date(2020, 1, 20)
-  }
-]
-
-for (var i = 0; i < products.length; i++) {
+for (var i in products) {
   var product = products[i]
 
   var datetxt = product.dataAdded.toLocaleDateString('pl')
