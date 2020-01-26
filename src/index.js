@@ -1,5 +1,8 @@
 /* eslint-disable no-redeclare */
 
+var productsList = document.getElementById('productsList')
+var cartItemsList = document.getElementById('cartItemsList')
+
 // Products List
 console.log('====== Products List ======')
 
