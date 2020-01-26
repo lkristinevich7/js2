@@ -29,8 +29,9 @@ console.log('====== SHOPPING CART ======')
   Suma produktów = 300.00
 */
 
+var totalPrice = 0
+
 for (var i in cartItems) {
-  var totalPrice = 0
   var item = cartItems[i]
   var product = item.product
   var grossPrice = (product.price * (1 + product.tax / 100))
