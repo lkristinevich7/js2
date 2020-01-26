@@ -17,6 +17,7 @@ elem.textContent = 'Placki!'
 parent.appendChild(elem)
 parent.insertBefore(elem, parent.children[0])
 
+
 elem.setAttribute('title', 'Lubie placki')
 // https://caniuse.com/#search=classList
 elem.classList.add('active')
@@ -40,6 +41,7 @@ p = document.createElement('p')
 p.textContent = 'Placki!'
 
 div.append(p)
+elem.remove()
 
 div.innerText = '<b>test<b>'
 div.innerHTML = '<b>test<b>'
